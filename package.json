@@ -1,0 +1,21 @@
+{
+  "name": "expressTemplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.3",
+    "hbs": "^4.1.1",
+    "uuid": "^7.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  },
+  "scripts": {
+    "start": "nodemon ./bin/WWW"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

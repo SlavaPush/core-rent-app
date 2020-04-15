@@ -1,0 +1,24 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">Аренда квартир</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+      {{#if isHome}}
+      <li class="active"><a href="/">Главная</a></li>
+      {{else}}
+      <li><a href="/">Главная</a></li>
+      {{/if}}
+
+      <li><a href="/courses">Все обяъвления</a></li>
+
+      <li><a href="/add">Разместить объявление</a></li>
+
+      <li><a href="/card">Что-то ещё</a></li>
+
+      <li><a href="/orders">Что-то ещё</a></li>
+
+      <li><a href="/auth/login#login">Войти</a></li>
+
+    </ul>
+  </div>
+</nav>
