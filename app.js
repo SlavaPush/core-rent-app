@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const path = require('path');
 const homeRoutes = require('./routes/home');
+const authRoutes = require('./routes/auth');
+
 
 
 const app = express();
@@ -21,8 +23,9 @@ app.use(express.urlencoded({
 }))
 
 app.use('/', homeRoutes);
+app.use('/auth', authRoutes)
 
 
 
-
+app.listen(3000)
 module.exports = app;
