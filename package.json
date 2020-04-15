@@ -13,7 +13,7 @@
     "nodemon": "^2.0.3"
   },
   "scripts": {
-    "start": "nodemon ./bin/WWW"
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
