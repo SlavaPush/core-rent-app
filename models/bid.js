@@ -4,7 +4,7 @@ const {
 } = require('mongoose');
 
 
-const respSchema = new Schema({
+const bidSchema = new Schema({
   number: {
     type: Number,
     required: true
@@ -23,8 +23,11 @@ const respSchema = new Schema({
   },
   ads: {
     type: Schema.Types.ObjectId,
-    ref: 'Ads'
-  }
+    ref: 'Adv'
+  },
+  comment: {
+    type: String
+  },
 })
 
-module.exports = model('Resp', respSchema);
+module.exports = model('Bid', bidSchema);
