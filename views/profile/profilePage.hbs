@@ -1,5 +1,6 @@
-<h2> Личный кабинет</h2>
 <div class="container">
+<h2> Профиль</h2>
+
   <div class="loadPhoto">
     <img id="image1" width="150px" height="200px" /> <br>
     <input type="file" id="file1" /> <br>
@@ -21,9 +22,13 @@
 
 
   <div class="userProfileForm">
-    <p>Имя: {{user.name}}</p>
-    <p>E-mail: {{user.email}}</p>
-    <input id="changePass"/>
+
+    <ul class="collection">
+      <li class="collection-item"><span>Имя:</span>{{user.name}}</li>
+      <li class="collection-item"><span>E-mail:</span>{{user.email}}</li>
+    </ul>
+
+    <input id="changePass" />
     <button id="changePassBtn" type="Button" onclick='changePassBtnClick()'>Сменить пароль</button>
 
     <script>
@@ -36,32 +41,83 @@
         alert('Пароль изменен');
       }
     </script>
-
-
   </div>
-
-  <div class="myAdvs">
-    {{!-- <p>Мои объявления</p>  --}}
-   <p><a href="/profile/myAdvs">Мои объявления</a></p> 
-
-  </div>
-
-  <div class="myResps">
-    {{!-- <p>Мои отклики</p>  --}}
-    <p><a href="/profile/myResps">Мои отклики</a></p>
-
-  </div>
-  <style>
-    .container {
-      margin-left: 50px;
-    }
-
-    p {
-      border-style: ridge;
-      border-color: grey;
-      padding: 5px;
-      margin-right: 700px;
-    }
-  </style>
 
 </div>
+
+<div class="side">
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s6"><a class="active" href="#myAdvs">Мои объявления</a></li>
+        <li class="tab col s6"><a class="active" href="#myResps">Мои отклики</a></li>
+      </ul>
+    </div>
+
+    <div id="myAdvs" class="col s6 offset-s3">
+      <h2>Мои объявления</h2>
+      <main class="advsPage">
+
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{{adv.photo}}">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{adv.title}}
+              <i class="material-icons right">Подробнее</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Подробное описание<i
+                class="material-icons right">Свернуть</i></span>
+            <p>{{adv.content}}</p>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+    <div id="myResps" class="col s6 offset-s3">
+      <h2>Мои отклики</h2>
+      <main class="respPage">
+
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{{adv.photo}}">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{adv.title}}
+              <i class="material-icons right">Подробнее</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Подробное описание<i
+                class="material-icons right">Свернуть</i></span>
+            <p>{{adv.content}}</p>
+          </div>
+        </div>
+
+
+        <ul class="collection">
+          <li class="collection-item"><span>Телефон:</span>{{resp.tel}}</li>
+          <li class="collection-item"><span>Дата:</span>{{resp.date}}</li>
+          <li class="collection-item"><span>Время:</span>{{resp.time}}</li>
+          <li class="collection-item"><span>Комментарий:</span>{{resp.comment}}</li>
+          <li class="collection-item"><span>Статус:</span>{{resp.status}}</li>
+        </ul>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+<style>
+  .container {
+    float: left;
+    width: 400px;
+    margin-left: 60px;
+  }
+
+  .side {
+    float: right;
+    width: 1000px;
+  }
+</style>

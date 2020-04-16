@@ -6,6 +6,7 @@ const user = {
   name: 'Matthew',
   email: 'matthew_mcconaughey@yandex.ru',
   password: 'hungryLion',
+  photo: '',
   response: {
     respId: 1,
     advId: {
@@ -25,21 +26,15 @@ const adv = {
   photo: 'https://avatars.mds.yandex.net/get-zen_doc/225409/pub_5dcc5bbf760122197c9aef7f_5dcd605d723e5e0ec67acb8c/scale_1200',
 }
 
+const resp={
+  tel: 81112223344,
+  date: 01052020,
+  time: 1730,
+  comment: 'Кайф',
+  status: 'на рассмотрении'
+}
 router.get('/', (req, res) => {
-  res.render('./profile/profilePage', { user });
-});
-
-
-router.get('/profile', (req, res) => {
-  res.render('./profile/profilePage');
-});
-
-router.get('/myAdvs', (req, res) => {
-  res.render('./profile/myAdvs', {adv});
-});
-
-router.get('/myResps', (req, res) => {
-  res.render('./profile/myResps');
+  res.render('./profile/profilePage', { adv ,  user, resp });
 });
 
 
