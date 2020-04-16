@@ -1,0 +1,24 @@
+{{#each requests}}
+  <ul>
+    <li>
+      <a href="/requests/{{ requests.id }}/edit">edit</a>
+    </li>
+    <li>
+      <form method="post" action="/requests/{{requests.id}}">
+        {{!-- <input type="hidden" name="_method" value="delete"> --}}
+        <input type="submit" value="delete">
+      </form>
+    </li>
+  </ul>
+{{/each}}
+
+
+{{!-- <div class="file-field input-field">
+<div class="btn">
+<span>Загрузить Фото</span>
+<input type="file">
+</div>
+<div class="file-path-wrapper">
+<input class="file-path validate" type="text">
+</div>
+</div>  --}}
