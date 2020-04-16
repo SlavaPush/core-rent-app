@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user')
-
+const User = require('../models/user');
+const bcrypt = require('bcryptjs');
 
 
 router.get('/login', async (req, res) => {
@@ -21,15 +21,20 @@ router.post('/login', async (req, res) => {
       email
     });
     if (candidate) {
-      req.session.user = candidate;
-      req.session.isAuthenticated = true;
-      req.session.save(err => {
-        if (err) {
-          throw err;
-        } else {
-          return res.redirect('/')
-        }
-      })
+      const areSame = await bcrypt.compare(password, candidate.password);
+      if (areSame) {
+        req.session.user = candidate;
+        req.session.isAuthenticated = true;
+        req.session.save(err => {
+          if (err) {
+            throw err;
+          } else {
+            return res.redirect('/')
+          }
+        })
+      } else {
+        return res.redirect('/auth/login#login')
+      }
     } else {
       return res.redirect('/auth/login#login')
     }
@@ -48,24 +53,39 @@ router.post('/register', async (req, res) => {
     } = req.body;
 
     const candidate = await User.findOne({
-      email
+      email,
     });
 
     if (candidate) {
       res.redirect('/auth/login#register');
     } else {
+      const hashPassword = await bcrypt.hash(password, 10)
       const user = new User({
         name,
         email,
         phone,
-        password,
+        password: hashPassword,
       });
-      await user.save()
-      res.redirect('/auth/login#login');
+      await user.save();
+      req.session.user = user;
+      req.session.isAuthenticated = true;
+      req.session.save(err => {
+        if (err) {
+          throw err;
+        } else {
+          return res.redirect('/')
+        }
+      })
     }
   } catch (e) {
     console.log(e);
   }
+});
+
+router.get('/logout', async (req, res) => {
+  req.session.destroy(() => {
+    res.redirect('/auth/login#login')
+  })
 });
 
 
