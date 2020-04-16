@@ -28,6 +28,19 @@ const bidSchema = new Schema({
   comment: {
     type: String
   },
+  reviewStatus: {
+    type: Boolean,
+    default: false
+  },
+  meetingStatus: {
+    type: Boolean,
+    default: false
+  },
+  saleStatus: {
+    type: Boolean,
+    default: false
+  }
+
 })
 
 

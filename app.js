@@ -6,10 +6,11 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 
 const profileRoutes = require('./routes/profile');
-
 const homeRoutes = require('./routes/home');
 const authRoutes = require('./routes/auth');
 const reqRoutes = require('./routes/req');
+const postRoutes = require('./routes/posts');
+const addRoutes = require('./routes/addpost');
 
 const MONGODB_URI = 'mongodb+srv://slava:9W3f7yGwNWj1TmPN@cluster0-qtwws.mongodb.net/test?retryWrites=true&w=majority';
 
@@ -35,6 +36,9 @@ app.use(morgan('dev'));
 app.use('/', homeRoutes);
 app.use('/auth', authRoutes);
 app.use('/requests', reqRoutes);
+app.use('/profile', profileRoutes);
+app.use('/add', addRoutes);
+app.use('/courses', postRoutes);
 
 const PORT = process.env.PORT || 3000;
 
