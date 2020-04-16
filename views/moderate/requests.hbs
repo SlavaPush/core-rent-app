@@ -1,12 +1,13 @@
 {{#each requests}}
   <ul>
+    <li></li>
     <li>
-      <a href="/requests/{{ requests.id }}/edit">edit</a>
+      <a href="/requests/{{ requests.id }}/accept">accept</a>
     </li>
     <li>
       <form method="post" action="/requests/{{requests.id}}">
-        {{!-- <input type="hidden" name="_method" value="delete"> --}}
-        <input type="submit" value="delete">
+        <input type="hidden" name="_method" value="decline">
+        <input type="submit" class="btn waves-effect waves-light" value="decline">
       </form>
     </li>
   </ul>
