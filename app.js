@@ -4,14 +4,16 @@ const path = require('path');
 require('dotenv').config();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
+const session = require('express-session');
 
 const profileRoutes = require('./routes/profile');
-
 const homeRoutes = require('./routes/home');
 const authRoutes = require('./routes/auth');
-const reqRoutes = require('./routes/req');
+const bidRoutes = require('./routes/bid');
+const varMiddleware = require('./middleware/variables');
+const allListRoutes = require('./routes/alllist');
+const addListRoutes = require('./routes/addlist');
 
-const MONGODB_URI = 'mongodb+srv://slava:9W3f7yGwNWj1TmPN@cluster0-qtwws.mongodb.net/test?retryWrites=true&w=majority';
 
 
 const app = express();
@@ -29,19 +31,30 @@ app.use(express.json());
 app.use(express.urlencoded({
   extended: true,
 }));
+app.use(session({
+  secret: 'secret secret',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(varMiddleware);
 app.use(morgan('dev'));
 
 
 app.use('/', homeRoutes);
 app.use('/auth', authRoutes);
-app.use('/requests', reqRoutes);
+app.use('/requests', bidRoutes);
+app.use('/profile', profileRoutes);
+app.use('/add', addListRoutes);
+app.use('/all_adds', allListRoutes);
+
+
 
 const PORT = process.env.PORT || 3000;
 
 
 async function start() {
   try {
-    await mongoose.connect(MONGODB_URI, {
+    await mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useFindAndModify: false,
       useUnifiedTopology: true

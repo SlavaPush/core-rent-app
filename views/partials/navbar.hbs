@@ -3,21 +3,17 @@
     <a href="/" class="brand-logo">Аренда квартир</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-      {{#if isHome}}
-      <li class="active"><a href="/">Главная</a></li>
-      {{else}}
-      <li><a href="/">Главная</a></li>
-      {{/if}}
+      <li class="{{#if isHome}}active{{/if}}"><a href="/">Главная</a></li>
 
-      <li><a href="/courses">Все обяъвления</a></li>
+      <li class="{{#if isAll}}active{{/if}}"><a href="/all_adds">Все объявления</a></li>
 
-      <li><a href="/add">Разместить объявление</a></li>
+      <li class="{{#if isAdd}}active{{/if}}"><a href="/add">Разместить объявление</a></li>
 
-      <li><a href="/card">Что-то ещё</a></li>
+      <li class="{{#if isWhat}}active{{/if}}"><a href="/card">Что-то ещё</a></li>
 
-      <li><a href="/profile">Профиль</a></li>
+      <li class="{{#if isProfile}}active{{/if}}"><a href="/profile">Профиль</a></li>
 
-      <li><a href="/auth/login#login">Войти</a></li>
+      <li class="{{#if isLogin}}active{{/if}}"><a href="/auth/login#login">Войти</a></li>
 
     </ul>
   </div>

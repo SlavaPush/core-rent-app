@@ -2,7 +2,13 @@ const express = require('express');
 const router = express.Router();
 // coinst Resp = require('../models/resp')
 
-const requests = [{id: 1}, {id: 2}, {id: 3}, {}, {}, {}]
+const requests = [{
+  id: 1
+}, {
+  id: 2
+}, {
+  id: 3
+}, {}, {}, {}]
 
 router.get('/', (req, res) => {
   // requests = await Resp.mostRecent();

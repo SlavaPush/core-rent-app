@@ -27,8 +27,7 @@ const bidSchema = new Schema({
   },
   comment: {
     type: String
-  },
-  
+  }
 })
 
 
