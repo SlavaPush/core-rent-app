@@ -2,11 +2,12 @@
   <ul>
     <li></li>
     <li>
-      <a href="/requests/{{ requests.id }}/accept">accept</a>
-    </li>
+      <form method="get" action="/requests/{{id}}/accept">
+        <input type="submit" class="btn waves-effect waves-light" value="accept">
+      </form>
+      </li>
     <li>
-      <form method="post" action="/requests/{{requests.id}}">
-        <input type="hidden" name="_method" value="decline">
+      <form method="get" action="/requests/{{id}}/decline">
         <input type="submit" class="btn waves-effect waves-light" value="decline">
       </form>
     </li>
