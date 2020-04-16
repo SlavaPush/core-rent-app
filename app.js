@@ -40,6 +40,7 @@ app.use('/profile', profileRoutes);
 app.use('/add', addRoutes);
 app.use('/courses', postRoutes);
 
+
 const PORT = process.env.PORT || 3000;
 
 
