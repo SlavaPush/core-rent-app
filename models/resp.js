@@ -24,6 +24,10 @@ const respSchema = new Schema({
   ads: {
     type: Schema.Types.ObjectId,
     ref: 'Ads'
+  },
+  status: {
+    type: String,
+    default: 'wait'
   }
 })
 
