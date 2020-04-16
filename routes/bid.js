@@ -2,11 +2,17 @@ const express = require('express');
 const router = express.Router();
 // coinst Resp = require('../models/resp')
 
-const requests = [{id: 1}, {id: 2}, {id: 3}, {}, {}, {}]
+const requests = [{
+  id: 1
+}, {
+  id: 2
+}, {
+  id: 3
+}, {}, {}, {}]
 
 router.get('/', (req, res) => {
   // requests = await Resp.mostRecent();
-  res.render('moderate/requests', {
+  res.render('moderate/bid', {
     title: 'Заявки',
     isReq: true,
     requests

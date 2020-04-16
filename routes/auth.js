@@ -27,7 +27,6 @@ router.post('/login', async (req, res) => {
         if (err) {
           throw err;
         } else {
-          console.log('complete<<<<<<<<<<<<<<<<<<<<')
           return res.redirect('/')
         }
       })

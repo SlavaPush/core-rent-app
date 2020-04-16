@@ -21,10 +21,6 @@ const userSchema = new Schema({
     required: true,
   },
   photo: String,
-  resp: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Resp'
-  }],
   adv: [{
     type: Schema.Types.ObjectId,
     ref: 'Adv'
