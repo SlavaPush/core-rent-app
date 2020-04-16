@@ -2,6 +2,7 @@
   padding: 0 2rem;
   background-color: cadetblue;
 }
+
 .addButton {
   text-align: center;
   margin: 10px;
@@ -14,15 +15,29 @@
   margin: 10px;
 }
 
-.windowAdd{
+.windowAdd {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.addPost{
+.addPost {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 10px;
+}
+
+.tabs .tab a {
+  color: cadetblue;
+}
+
+.tabs .tab a:hover {
+  color: cadetblue;
+
+}
+
+.tabs .tab a.active {
+  color: cadetblue;
+
 }
