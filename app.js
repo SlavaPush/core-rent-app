@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 
 const profileRoutes = require('./routes/profile');
-
 const homeRoutes = require('./routes/home');
 const authRoutes = require('./routes/auth');
 const reqRoutes = require('./routes/req');
@@ -35,6 +34,8 @@ app.use(morgan('dev'));
 app.use('/', homeRoutes);
 app.use('/auth', authRoutes);
 app.use('/requests', reqRoutes);
+app.use('/profile', profileRoutes);
+
 
 const PORT = process.env.PORT || 3000;
 
