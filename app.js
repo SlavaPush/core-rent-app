@@ -2,11 +2,16 @@ const express = require('express');
 const hbs = require('hbs');
 const path = require('path');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
+
+const profileRoutes = require('./routes/profile');
+
 const homeRoutes = require('./routes/home');
 const authRoutes = require('./routes/auth');
 const reqRoutes = require('./routes/req');
 
 const MONGODB_URI = 'mongodb+srv://slava:9W3f7yGwNWj1TmPN@cluster0-qtwws.mongodb.net/test?retryWrites=true&w=majority'
+
 
 const app = express();
 
@@ -15,14 +20,16 @@ app.set('view options', {
   layout: 'layouts/main'
 });
 
-hbs.registerPartials(__dirname + '/views/partials');
+hbs.registerPartials(`${__dirname}/views/partials`);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json());
 app.use(express.urlencoded({
-  extended: true
+  extended: true,
 }));
+app.use(morgan('dev'));
+
 
 app.use('/', homeRoutes);
 app.use('/auth', authRoutes)
@@ -47,4 +54,5 @@ async function start() {
 }
 
 start()
+
 module.exports = app;
