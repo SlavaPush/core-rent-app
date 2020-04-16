@@ -17,14 +17,14 @@ const advSchema = new Schema({
     type: String,
     required: true,
   },
-  person: {
+  author: {
     type: Schema.Types.ObjectId,
     ref: 'User',
   },
-  bid: {
+  bid: [{
     type: Schema.Types.ObjectId,
     ref: 'Bid',
-  },
+  }],
 });
 
 
