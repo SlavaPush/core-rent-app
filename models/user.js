@@ -25,9 +25,13 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Resp'
   }],
-  ads: [{
+  adv: [{
     type: Schema.Types.ObjectId,
-    ref: 'Ads'
+    ref: 'Adv'
+  }],
+  bids: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Bid'
   }],
   moderator: {
     type: Boolean,
