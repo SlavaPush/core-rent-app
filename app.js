@@ -1,10 +1,16 @@
 const express = require('express');
 const hbs = require('hbs');
 const path = require('path');
+const mongoose = require('mongoose');
 const morgan = require('morgan');
+
+const profileRoutes = require('./routes/profile');
+
 const homeRoutes = require('./routes/home');
 const authRoutes = require('./routes/auth');
-const profileRoutes = require('./routes/profile');
+const reqRoutes = require('./routes/req');
+
+const MONGODB_URI = 'mongodb+srv://slava:9W3f7yGwNWj1TmPN@cluster0-qtwws.mongodb.net/test?retryWrites=true&w=majority'
 
 
 const app = express();
@@ -24,10 +30,29 @@ app.use(express.urlencoded({
 }));
 app.use(morgan('dev'));
 
+
 app.use('/', homeRoutes);
-app.use('/auth', authRoutes);
-app.use('/profile', profileRoutes);
+app.use('/auth', authRoutes)
+app.use('/requests', reqRoutes)
+
+const PORT = process.env.PORT || 3000
 
 
-app.listen(3000, () => console.log('server has been started'));
+async function start() {
+  try {
+    await mongoose.connect(MONGODB_URI, {
+      useNewUrlParser: true,
+      useFindAndModify: false,
+      useUnifiedTopology: true
+    })
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`)
+    })
+  } catch (e) {
+    console.log(e)
+  }
+}
+
+start()
+
 module.exports = app;
