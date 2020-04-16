@@ -30,4 +30,6 @@ const bidSchema = new Schema({
   },
 })
 
+
+
 module.exports = model('Bid', bidSchema);
