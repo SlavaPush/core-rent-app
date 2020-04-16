@@ -18,9 +18,15 @@ const allListRoutes = require('./routes/alllist');
 const addListRoutes = require('./routes/addlist');
 
 const varMiddleware = require('./middleware/variables');
-const auth = require('./middleware/auth');
+const {
+  auth
+} = require('./middleware/auth');
+const cookieCleaner = require('./middleware/clean')
+
 
 const app = express();
+
+app.use(morgan('dev'));
 
 app.set('view engine', 'hbs');
 app.set('view options', {
@@ -47,12 +53,13 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store,
+  key: "user_sid",
   cookie: {
     expires: 60 * 60 * 1000
   },
 }));
 app.use(varMiddleware);
-app.use(morgan('dev'));
+app.use(cookieCleaner);
 
 
 app.use('/', homeRoutes);
