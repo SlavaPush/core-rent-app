@@ -26,11 +26,22 @@
     </div>
     <div id="register" class="col s6 offset-s3">
 
-      <form class="auth_form" action="/add" method="POST">
+      <form class="auth_form" action="/auth/register" method="POST">
+        <div class="input-field">
+          <input id="name" name="name" type="text" class="validate" required>
+          <label for="name">Имя</label>
+          <span class="helper-text" data-error="Введите имя"></span>
+        </div>
         <div class="input-field">
           <input id="remail" name="email" type="text" class="validate" required>
           <label for="email">Email</label>
           <span class="helper-text" data-error="Введите email"></span>
+        </div>
+        <div class="input-field">
+          <input id="phone" name="phone" type="tel" pattern="+7[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}" class="validate"
+            required>
+          <label for="phone">Телефон</label>
+          <span class="helper-text" data-error="Введите телефон в формате +79990001122"></span>
         </div>
 
         <div class="input-field">
