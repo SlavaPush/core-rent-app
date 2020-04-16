@@ -19,14 +19,11 @@ router.get('/:id/:status', async (req, res) => {
     return;
   }
   // let doc = await Resp.findById({ id: req.params.id} )
-  // doc..status = req.params.status;
+  // doc.status = req.params.status;
   requests[0].status = req.params.status;
   doc.save();
   res.send('ok')
 });
 
-// router.get('/:id/decline', async (req, res) => {
-//   // let entry = await Resp.findById({ id: req.params.id})
-// });
 
 module.exports = router;
