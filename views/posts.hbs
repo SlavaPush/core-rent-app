@@ -1,15 +1,21 @@
 <form action="*" name="allPosts" method="POST">
 
   <div class="postMain">
-    <div>Квартира</div>
-    <div>Описание</div>
+    <div><h4>Квартира</h4></div>
+    <div>Описание о квартире, о ее квадратуре и кол-ве комнат</div>
     <div><button class="btn btn-primary" type="submit">Откликнуться</button></div>
   </div>
 
   <div class="windowAdd">
-    <div><input type="tel" placeholder="Введите номер телефона"></div>
+    <div class="input-field col s6">
+        <input id="icon_telephone" type="tel" class="validate">
+        <label for="icon_telephone">Номер телефона</label>
+      </div>
     <div><input type="datetime-local" placeholder="Выберите удобную Вам дату"></div>
-    <div><input type="text" placeholder="Комментарии"></div>
+    <div class="input-field col s6">
+          <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+          <label for="icon_prefix2">Описание</label>
+        </div>
     <div><button class="btn btn-primary" type="submit">Отправить заявку</button></div>
   </div>
 </form>

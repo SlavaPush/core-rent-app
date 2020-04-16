@@ -3,7 +3,7 @@ const router = require('express').Router(); //Покдлючаем express
 
 
 router.get('/', (req, res) => {
-  res.render('home', {
+  res.render('addpost', {
     title: 'Главная страница',
     isHome: true,
   });
