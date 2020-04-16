@@ -1,0 +1,67 @@
+<h2> Личный кабинет</h2>
+<div class="container">
+  <div class="loadPhoto">
+    <img id="image1" width="150px" height="200px" /> <br>
+    <input type="file" id="file1" /> <br>
+    <button onclick="save()">Загрузить</button>
+    <script>
+
+      function save() {
+        let f = file1.files[0];
+        if (f) {
+          image1.src = URL.createObjectURL(f);
+          localStorage.setItem('myImage', image1.src);
+        }
+      }
+
+      image1.src = localStorage.getItem('myImage')
+    </script>
+
+  </div>
+
+
+  <div class="userProfileForm">
+    <p>Имя: {{user.name}}</p>
+    <p>E-mail: {{user.email}}</p>
+    <input id="changePass"/>
+    <button id="changePassBtn" type="Button" onclick='changePassBtnClick()'>Сменить пароль</button>
+
+    <script>
+      if (!localStorage.getItem('{{password}}')) {
+        localStorage.setItem('password', 'pass');
+      }
+
+      function changePassBtnClick() {
+        localStorage.setItem('password', document.getElementById('changePass').value);
+        alert('Пароль изменен');
+      }
+    </script>
+
+
+  </div>
+
+  <div class="myAdvs">
+    {{!-- <p>Мои объявления</p>  --}}
+   <p><a href="/profile/myAdvs">Мои объявления</a></p> 
+
+  </div>
+
+  <div class="myResps">
+    {{!-- <p>Мои отклики</p>  --}}
+    <p><a href="/profile/myResps">Мои отклики</a></p>
+
+  </div>
+  <style>
+    .container {
+      margin-left: 50px;
+    }
+
+    p {
+      border-style: ridge;
+      border-color: grey;
+      padding: 5px;
+      margin-right: 700px;
+    }
+  </style>
+
+</div>
