@@ -1,5 +1,5 @@
 <div class="container">
-<h2> Профиль</h2>
+  <h2> Профиль</h2>
 
   <div class="loadPhoto">
     <img id="image1" width="150px" height="200px" /> <br>
@@ -57,56 +57,61 @@
     <div id="myAdvs" class="col s6 offset-s3">
       <h2>Мои объявления</h2>
       <main class="advsPage">
-
+        {{#each adv}}
         <div class="card">
           <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="{{adv.photo}}">
+            <img class="activator" src="{{photo}}">
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">{{adv.title}}
+            <span class="card-title activator grey-text text-darken-4">{{title}}
               <i class="material-icons right">Подробнее</i></span>
           </div>
           <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">Подробное описание<i
                 class="material-icons right">Свернуть</i></span>
-            <p>{{adv.content}}</p>
+            <p>{{content}}</p>
           </div>
         </div>
-
+        {{/each}}
       </main>
 
     </div>
     <div id="myResps" class="col s6 offset-s3">
       <h2>Мои отклики</h2>
       <main class="respPage">
-
         <div class="card">
+          {{#each adv}}
           <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="{{adv.photo}}">
+            <img class="activator" src="{{photo}}">
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">{{adv.title}}
+            <span class="card-title activator grey-text text-darken-4">{{title}}
               <i class="material-icons right">Подробнее</i></span>
           </div>
           <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">Подробное описание<i
                 class="material-icons right">Свернуть</i></span>
-            <p>{{adv.content}}</p>
+            <p>{{content}}</p>
           </div>
+          {{/each}}
         </div>
 
-
-        <ul class="collection">
-          <li class="collection-item"><span>Телефон:</span>{{resp.tel}}</li>
-          <li class="collection-item"><span>Дата:</span>{{resp.date}}</li>
-          <li class="collection-item"><span>Время:</span>{{resp.time}}</li>
-          <li class="collection-item"><span>Комментарий:</span>{{resp.comment}}</li>
-          <li class="collection-item"><span>Статус:</span>{{resp.status}}</li>
-        </ul>
-
-      </main>
+        <div class="bid">
+          {{#each bid}}
+          <ul class="collection">
+            <li class="collection-item"><span>Телефон:</span>{{tel}}</li>
+            <li class="collection-item"><span>Дата:</span>{{date}}</li>
+            <li class="collection-item"><span>Время:</span>{{time}}</li>
+            <li class="collection-item"><span>Комментарий:</span>{{comment}}</li>
+            <li class="collection-item"><span>Статус:</span>{{status}}</li>
+          </ul>
+          {{/each}}
+        </div>
     </div>
+
+    </main>
   </div>
+</div>
 </div>
 
 <style>
