@@ -1,6 +1,6 @@
 .nav-wrapper {
   padding: 0 2rem;
-  background-color: cadetblue;
+  background-color: rgb(32, 178, 170);
 }
 
 .addButton {
@@ -28,16 +28,13 @@
   margin: 10px;
 }
 
-.tabs .tab a {
-  color: cadetblue;
-}
-
-.tabs .tab a:hover {
-  color: cadetblue;
-
-}
-
+.tabs .tab a,
+.tabs .tab a:hover,
 .tabs .tab a.active {
-  color: cadetblue;
+  color: rgba(32, 178, 170, 0.6);
+}
 
+.modal {
+  border-radius: 15px;
+  width: 30%;
 }
