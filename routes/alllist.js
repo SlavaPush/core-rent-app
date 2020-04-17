@@ -9,6 +9,3 @@ router.get('/', async (req, res) => {
     house: data,
   });
 });
-
-
-module.exports = router;
