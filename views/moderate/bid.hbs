@@ -6,15 +6,28 @@
           <div class="card-content white-text">
             <span class="card-title">{{ads}}</span>
             <p>Date of miting: {{meetengDate}}</p>
+            {{#if rentStatus}}
+            <h3>Объект сдан</h3>
+            {{/if}}
+            {{#if meetingStatus}}
+            <h3>Встреча назначена</h3>
+            {{/if}}
+            {{#if ads}}
+            <p>{{ads}}</p>
+            {{/if}}
+            {{#if person}}
             <p>Person: {{person}}</p>
+            {{/if}}
             <p>Status: {{status}}</p>
+            {{#if comment}}
             <p>{{comment}}</p>
+            {{/if}}
           </div>
           <div class="card-action">
             <form method="get" action="/requests/{{id}}/accept">
               <input type="submit" class="btn waves-effect waves-light" value="accept">
             </form>
-            <form method="get" action="/requests/{{id}}/decline">
+            <form method="get" action="/requests/{{id}}/decline" style="display: inline">
               <input type="submit" class="btn waves-effect waves-light" value="decline">
             </form>
           </div>
