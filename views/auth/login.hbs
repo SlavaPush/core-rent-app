@@ -6,6 +6,7 @@
         <li class="tab col s6"><a href="#register">Регистрация</a></li>
       </ul>
     </div>
+
     <div id="login" class="col s6 offset-s3">
       <form class="auth_form" action="/auth/login" method="POST">
         <div class="input-field">
@@ -17,7 +18,7 @@
 
         <div class="input-field">
           <i class="small material-icons prefix">create</i>
-          <input id="password" name="password" type="text" class="validate" required>
+          <input id="password" name="password" type="password" class="validate" required>
           <label for="password">Пароль</label>
           <span class="helper-text" data-error="Введите пароль"></span>
         </div>
@@ -25,8 +26,8 @@
         <button class="btn btn-primary" type="submit">Войти</button>
       </form>
     </div>
-    <div id="register" class="col s6 offset-s3">
 
+    <div id="register" class="col s6 offset-s3">
       <form class="auth_form" action="/auth/register" method="POST">
         <div class="input-field">
           <i class="small material-icons prefix">perm_identity</i>
