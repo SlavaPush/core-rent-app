@@ -8,8 +8,11 @@ const User = require('../models/user');
 
 
 router.get('/', async (req, res) => {
-
-  const data = await Adv.find();
+  console.log(req.session.user._id);
+  const data = await Adv.find({
+    author: req.session.user._id
+  });
+  console.log()
   res.render('./profile/profilePage', {
     title: 'Профиль',
     isProfile: true,
