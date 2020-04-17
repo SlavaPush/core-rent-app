@@ -1,55 +1,41 @@
-const {
-  Schema,
-  model,
-} = require('mongoose');
+const mongoose = require('mongoose');
 
-
-const advSchema = new Schema({
+const advSchema = new mongoose.Schema({
   title: {
     type: String,
-<<<<<<< HEAD
     required: true,
   },
   content: {
     type: String,
     required: true,
   },
-  photo: {
-    type: String,
+  number: {
+    type: Number,
     required: true,
   },
-  person: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
+  price: {
+    type: Number,
+    required: true,
   },
-  bid: {
-    type: Schema.Types.ObjectId,
-    ref: 'Bid',
-=======
-    required: true
-  },
-  content: {
-    type: String,
-    required: true
-  },
-  photo: {
-    type: String,
-    required: true
-  },
-  person: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
-  },
-  bid: {
-    type: Schema.Types.ObjectId,
-    ref: 'Adv'
->>>>>>> master
-  },
+  // photo: {
+  //   type: String,
+  //   required: true,
+  // },
+  // date: {
+  //   type: Date,
+  //   required: true,
+  // },
+  // person: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'User',
+  // },
+  // bid: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'Bid',
+  // },
 });
 
+const advModel = mongoose.model('adv', advSchema);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
-module.exports = model('Adv', advSchema);
+// module.exports = model('Adv', advSchema);
+module.exports = advModel;

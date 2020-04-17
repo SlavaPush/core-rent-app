@@ -1,14 +1,16 @@
-<form action="*" name="allPosts" method="POST">
-{{#each flat}}
+{{!-- <form action="*" name="allPosts" method="POST"> --}}
+  {{!-- <form action="" method="POST"> --}}
+
+{{#each house}}
   <div class="postMain">
-    <div><h4>{{name}}</h4></div>
-    <div>{{comment}}</div>
-    <div>{{number}}</div>
-    <div>{{price}}</div>
+    <div ><h4>{{this.title}}</h4></div>
+    <div >{{this.content}}</div>
+    <div>{{this.number}}</div>
+    <div >{{this.price}}</div>
     <div><button class="btn btn-primary" type="submit">Откликнуться</button></div>
   </div>
 {{/each}}
-  <div class="windowAdd">
+  {{!-- <div class="windowAdd">
     <div class="input-field col s6">
         <input id="icon_telephone" type="tel" class="validate">
         <label for="icon_telephone">Номер телефона</label>
@@ -20,4 +22,4 @@
         </div>
     <div><button class="btn btn-primary" type="submit">Отправить заявку</button></div>
   </div>
-</form>
+</form> --}}

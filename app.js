@@ -5,6 +5,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const session = require('express-session');
+const advModel = require('./models/adv');
 
 const profileRoutes = require('./routes/profile');
 const homeRoutes = require('./routes/home');
