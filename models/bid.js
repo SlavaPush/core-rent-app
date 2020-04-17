@@ -27,6 +27,18 @@ const bidSchema = new Schema({
   },
   comment: {
     type: String
+  },
+  status: {
+    type: String,
+    default: 'waiting'
+  },
+  meetengStatus: {
+    type: Boolean,
+    default: false
+  },
+  rentStatus: {
+    type: Boolean,
+    default: false
   }
 })
 

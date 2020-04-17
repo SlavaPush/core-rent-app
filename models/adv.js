@@ -12,7 +12,7 @@ const advSchema = new mongoose.Schema({
   number: {
     type: Number,
     required: true,
-  },
+
   price: {
     type: Number,
     required: true,
@@ -25,17 +25,19 @@ const advSchema = new mongoose.Schema({
   //   type: Date,
   //   required: true,
   // },
-  // person: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'User',
-  // },
-  // bid: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'Bid',
-  // },
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  },
+  bid: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Bid',
+  }],
+
 });
 
 const advModel = mongoose.model('adv', advSchema);
 
-// module.exports = model('Adv', advSchema);
-module.exports = advModel;
+
+module.exports = model('Adv', advSchema);
+
