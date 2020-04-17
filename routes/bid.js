@@ -5,13 +5,16 @@ const auth = require('../middleware/auth');
 
 
 router.get('/', auth, async (req, res) => {
-  const bids = await Bid.mostRecent();
+  const bids = await Bid.find();
   res.render('moderate/bid', {
     title: 'Заявки',
     isBid: true,
     bids
   });
 });
+
+
+
 
 router.get('/:id/:status', auth, async (req, res) => {
   if (!['accept', 'decline', 'waiting'].includes(req.params.status)) {
@@ -23,8 +26,8 @@ router.get('/:id/:status', auth, async (req, res) => {
   })
   bid.status = req.params.status;
   if (req.params.status == 'decline') bid.show = false;
-    // bids[0].status = req.params.status;
-    bid.save();
+  // bids[0].status = req.params.status;
+  bid.save();
   res.redirect('moderate/bid')
 });
 

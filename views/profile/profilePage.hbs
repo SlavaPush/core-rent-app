@@ -1,18 +1,20 @@
 <span id="mainProfile">
   <span id="profile">
     <div> </div>
-    <span><img id="photoProfile" src ={{user.photo}} class="responsive-img" id="image1" width="150px" height="200px"><form action="#">
-    <span class="file-field input-field">
-      <span class="btn">
-        <span>Foto</span>
-        <input onclick="" type="file">
-      </span>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text">
-      </div>
+    <span><img id="photoProfile" src={{user.photo}} class="responsive-img" id="image1" width="150px" height="200px">
+      <form action="#">
+        <span class="file-field input-field">
+          <span class="btn">
+            <span>Foto</span>
+            <input onclick="" type="file">
+          </span>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </span>
+      </form>
     </span>
-  </form> </span>
-    
+
     <div id="profileBtn" class="input-field col s2">
       <label for="icon_prefix">Имя: {{name}}</label>
       <input id="icon_prefix" type="text" class="validate" disabled>
@@ -24,7 +26,7 @@
     </div>
     <div><button class="btn waves-effect waves-light" type="submit" name="action">Сменить пароль</button></div>
   </span>
-<div id="listBid">
+  <div id="listBid">
     <div class="side">
       <div class="row">
         <div class="col s12">
@@ -40,16 +42,18 @@
             {{#each adv}}
             <div class="card">
               <div class="profile-image waves-effect waves-block waves-light">
-                <img class="activator" src="{{photo}}" width="417px" height="250px">
+                <img class="activator" src="{{this.photo}}" width="417px" height="250px">
               </div>
               <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">{{title}}
+                <span class="card-title activator grey-text text-darken-4">{{this.title}}
                   <i class="material-icons right">Подробнее</i></span>
               </div>
               <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Подробное описание<i
                     class="material-icons right">Свернуть</i></span>
-                <p>{{content}}</p>
+                <p>{{this.content}}</p>
+                <p>Телефон для связи: {{this.number}}</p>
+                <p>Стоимость:{{this.price}}</p>
               </div>
             </div>
             {{/each}}
@@ -59,26 +63,25 @@
         <div id="myResps" class="col s6 offset-s3">
           <h3>Мои отклики</h3>
           <main class="respPage">
-              {{#each adv}}
+            {{#each adv}}
             <div class="card">
               <div class="profile-image waves-effect waves-block waves-light">
-                <img class="activator" src="{{photo}}"width="417px" height="250px">
+                <img class="activator" src="{{this.photo}}" width="417px" height="250px">
               </div>
               <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">{{title}}
+                <span class="card-title activator grey-text text-darken-4">{{this.title}}
                   <i class="material-icons right">Подробнее</i></span>
               </div>
               <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">Подробное описание<i
                     class="material-icons right">Свернуть</i></span>
-                <p>{{content}}
-                  {{tel}}
-                  {{date}}
+                <p>{{this.content}}
+                  <p>Телефон для связи: {{this.number}}</p>
+                  <p>Стоимость:{{this.price}}</p>
                 </p>
-              
               </div>
             </div>
-              {{/each}}
+            {{/each}}
 
             <div class="bid">
               {{#each bid}}
@@ -98,4 +101,3 @@
     </div>
   </div>
 </span>
-

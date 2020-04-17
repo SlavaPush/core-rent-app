@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
-const {compare, hash} = require('bcryptjs');
+const {
+  compare,
+  hash
+} = require('bcryptjs');
 
 
 router.get('/login', async (req, res) => {
