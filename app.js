@@ -42,7 +42,7 @@ app.use(morgan('dev'));
 
 app.use('/', homeRoutes);
 app.use('/auth', authRoutes);
-app.use('/requests', bidRoutes);
+app.use('/bid', bidRoutes);
 app.use('/profile', profileRoutes);
 app.use('/add', addListRoutes);
 app.use('/all_adds', allListRoutes);
