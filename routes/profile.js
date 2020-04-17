@@ -4,24 +4,24 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Adv = require('../models/adv');
 const auth = require('../middleware/auth');
-const user = require('../models/user');
+const User = require('../models/user');
 
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
 
-  // const profileUser = await user.find;
+  const data = await Adv.find();
   res.render('./profile/profilePage', {
     title: 'Профиль',
     isProfile: true,
-    user: req.session.user
-  });
-});
-
-router.get('/', async (req, res) => {
-  const data = await Adv.find();
-  res.render('posts', {
+    user: req.session.user,
     adv: data
   });
 });
+
+// router.get('/', async (req, res) => {
+//   res.render('posts', {
+//     adv: data
+//   });
+// });
 
 module.exports = router;

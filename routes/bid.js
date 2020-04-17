@@ -13,6 +13,9 @@ router.get('/', auth, async (req, res) => {
   });
 });
 
+
+
+
 router.get('/:id/:status', auth, async (req, res) => {
   if (!['accept', 'decline', 'waiting'].includes(req.params.status)) {
     res.end('Invalid');
@@ -23,8 +26,8 @@ router.get('/:id/:status', auth, async (req, res) => {
   })
   bid.status = req.params.status;
   if (req.params.status == 'decline') bid.show = false;
-    // bids[0].status = req.params.status;
-    bid.save();
+  // bids[0].status = req.params.status;
+  bid.save();
   res.redirect('moderate/bid')
 });
 
