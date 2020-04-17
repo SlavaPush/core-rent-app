@@ -31,6 +31,14 @@ const bidSchema = new Schema({
   status: {
     type: String,
     default: 'waiting'
+  },
+  meetengStatus: {
+    type: Boolean,
+    default: false
+  },
+  rentStatus: {
+    type: Boolean,
+    default: false
   }
 })
 

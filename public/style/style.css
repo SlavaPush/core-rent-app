@@ -1,7 +1,8 @@
 .nav-wrapper {
   padding: 0 2rem;
-  background-color: cadetblue;
+  background-color: rgb(32, 178, 170);
 }
+
 .addButton {
   text-align: center;
   margin: 10px;
@@ -14,15 +15,26 @@
   margin: 10px;
 }
 
-.windowAdd{
+.windowAdd {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.addPost{
+.addPost {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 10px;
+}
+
+.tabs .tab a,
+.tabs .tab a:hover,
+.tabs .tab a.active {
+  color: rgba(32, 178, 170, 0.6);
+}
+
+.modal {
+  border-radius: 15px;
+  width: 30%;
 }

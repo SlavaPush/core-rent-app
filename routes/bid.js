@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Bid = require('../models/bid');
+const auth = require('../middleware/auth');
 
 // const bids = [{
 //   id: 1
@@ -10,7 +11,7 @@ const Bid = require('../models/bid');
 //   id: 3
 // }, {}, {}, {}]
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
   const bids = await Bid.mostRecent();
   res.render('moderate/bid', {
     title: 'Заявки',
@@ -19,7 +20,7 @@ router.get('/', async (req, res) => {
   });
 });
 
-router.get('/:id/:status', async (req, res) => {
+router.get('/:id/:status', auth, async (req, res) => {
   if (!['accept', 'decline'].includes(req.params.status)) {
     res.end('Invalid');
     return;

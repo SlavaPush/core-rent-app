@@ -2,19 +2,21 @@
   <div class="row">
     <div class="col s12">
       <ul class="tabs">
-        <li class="tab col s6"><a class="active" href="#login">Войти</a></li>
+        <li class="tab col s6"><a href="#login">Войти</a></li>
         <li class="tab col s6"><a href="#register">Регистрация</a></li>
       </ul>
     </div>
     <div id="login" class="col s6 offset-s3">
       <form class="auth_form" action="/auth/login" method="POST">
         <div class="input-field">
+          <i class="small material-icons prefix">email</i>
           <input id="email" name="email" type="text" class="validate" required>
           <label for="email">Email</label>
           <span class="helper-text" data-error="Введите email"></span>
         </div>
 
         <div class="input-field">
+          <i class="small material-icons prefix">create</i>
           <input id="password" name="password" type="text" class="validate" required>
           <label for="password">Пароль</label>
           <span class="helper-text" data-error="Введите пароль"></span>
@@ -27,29 +29,34 @@
 
       <form class="auth_form" action="/auth/register" method="POST">
         <div class="input-field">
+          <i class="small material-icons prefix">perm_identity</i>
           <input id="name" name="name" type="text" class="validate" required>
           <label for="name">Имя</label>
           <span class="helper-text" data-error="Введите имя"></span>
         </div>
         <div class="input-field">
+          <i class="small material-icons prefix">email</i>
           <input id="remail" name="email" type="text" class="validate" required>
           <label for="email">Email</label>
           <span class="helper-text" data-error="Введите email"></span>
         </div>
         <div class="input-field">
-          <input id="phone" name="phone" type="tel" pattern="+7[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}" class="validate"
+          <i class="small material-icons prefix">phone</i>
+          <input id="phone" name="phone" type="number" pattern="+7[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}" class="validate"
             required>
           <label for="phone">Телефон</label>
           <span class="helper-text" data-error="Введите телефон в формате +79990001122"></span>
         </div>
 
         <div class="input-field">
+          <i class="small material-icons prefix">create</i>
           <input id="rpassword" name="password" type="password" class="validate" required>
           <label for="password">Пароль</label>
           <span class="helper-text" data-error="Введите пароль"></span>
         </div>
 
         <div class="input-field">
+          <i class="small material-icons prefix">create</i>
           <input id="confirm" name="confirm" type="password" class="validate" required>
           <label for="confirm">Повторите пароль</label>
           <span class="helper-text" data-error="Введите пароль"></span>
