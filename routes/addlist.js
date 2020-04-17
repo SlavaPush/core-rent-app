@@ -18,8 +18,11 @@ router.post('/new', async (req, res) => {
     number: req.body.numberName,
     price: req.body.priceNumber,
     photo: req.body.addPhotolist,
+    author: req.session.user._id
   });
-  res.redirect('/all_adds');
+  // res.redirect('/all_adds');
+  res.redirect('/adv');
+
 })
 
 
