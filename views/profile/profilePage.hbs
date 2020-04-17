@@ -1,128 +1,101 @@
-<div class="container">
-  <h2> Профиль</h2>
-
-  <div class="loadPhoto">
-    <img class="responsive-img"id="image1" width="150px" height="200px" /> <br>
-    <input type="file" id="file1" /> <br>
-    <button onclick="save()">Загрузить</button>
-    <script>
-
-      function save() {
-        let f = file1.files[0];
-        if (f) {
-          image1.src = URL.createObjectURL(f);
-          localStorage.setItem('myImage', image1.src);
-        }
-      }
-
-      image1.src = localStorage.getItem('myImage')
-    </script>
-
-  </div>
-
-
-  <div class="userProfileForm">
-
-    <ul class="collection">
-      <li class="collection-item"><span>Имя:</span>{{user.name}}</li>
-      <li class="collection-item"><span>E-mail:</span>{{user.email}}</li>
-    </ul>
-
-    <input id="changePass" />
-    <button id="changePassBtn" type="Button" onclick='changePassBtnClick()'>Сменить пароль</button>
-
-    <script>
-      if (!localStorage.getItem('{{password}}')) {
-        localStorage.setItem('password', 'pass');
-      }
-
-      function changePassBtnClick() {
-        localStorage.setItem('password', document.getElementById('changePass').value);
-        alert('Пароль изменен');
-      }
-    </script>
-  </div>
-
-</div>
-
-<div class="side">
-  <div class="row">
-    <div class="col s12">
-      <ul class="tabs">
-        <li class="tab col s6"><a class="active" href="#myAdvs">Мои объявления</a></li>
-        <li class="tab col s6"><a class="active" href="#myResps">Мои отклики</a></li>
-      </ul>
+<span id="mainProfile">
+  <span id="profile">
+    <div> </div>
+    <span><img id="photoProfile" src ={{user.photo}} class="responsive-img" id="image1" width="150px" height="200px"><form action="#">
+    <span class="file-field input-field">
+      <span class="btn">
+        <span>Foto</span>
+        <input onclick="" type="file">
+      </span>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </span>
+  </form> </span>
+    
+    <div id="profileBtn" class="input-field col s2">
+      <label for="icon_prefix">Имя: {{name}}</label>
+      <input id="icon_prefix" type="text" class="validate" disabled>
+      <button id="btn1" class="btn waves-effect waves-light" type="submit" name="action">изменить</button>
     </div>
-
-    <div id="myAdvs" class="col s6 offset-s3">
-      <h2>Мои объявления</h2>
-      <main class="advsPage">
-        {{#each adv}}
-        <div class="card">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="{{photo}}">
-          </div>
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">{{title}}
-              <i class="material-icons right">Подробнее</i></span>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Подробное описание<i
-                class="material-icons right">Свернуть</i></span>
-            <p>{{content}}</p>
-          </div>
-        </div>
-        {{/each}}
-      </main>
-
+    <div id="profileBtn1" class="input-field col s2"> <label for="icon_prefix">E-mail: {{email}}</label>
+      <input id="icon_prefix" type="text" class="validate" disabled>
+      <button id="btn2" class="btn waves-effect waves-light" type="submit" name="action">изменить</button>
     </div>
-    <div id="myResps" class="col s6 offset-s3">
-      <h2>Мои отклики</h2>
-      <main class="respPage">
-        <div class="card">
-          {{#each adv}}
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="{{photo}}">
-          </div>
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">{{title}}
-              <i class="material-icons right">Подробнее</i></span>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Подробное описание<i
-                class="material-icons right">Свернуть</i></span>
-            <p>{{content}}</p>
-          </div>
-          {{/each}}
-        </div>
-
-        <div class="bid">
-          {{#each bid}}
-          <ul class="collection">
-            <li class="collection-item"><span>Телефон:</span>{{tel}}</li>
-            <li class="collection-item"><span>Дата:</span>{{date}}</li>
-            <li class="collection-item"><span>Время:</span>{{time}}</li>
-            <li class="collection-item"><span>Комментарий:</span>{{comment}}</li>
-            <li class="collection-item"><span>Статус:</span>{{status}}</li>
+    <div><button class="btn waves-effect waves-light" type="submit" name="action">Сменить пароль</button></div>
+  </span>
+<div id="listBid">
+    <div class="side">
+      <div class="row">
+        <div class="col s12">
+          <ul class="tabs">
+            <li class="tab col s6"><a class="active" href="#myAdvs">Мои объявления</a></li>
+            <li class="tab col s6"><a class="active" href="#myResps">Мои отклики</a></li>
           </ul>
-          {{/each}}
         </div>
+
+        <div id="myAdvs" class="col s6 offset-s3">
+          <h3>Мои объявления</h3>
+          <main class="advsPage">
+            {{#each adv}}
+            <div class="card">
+              <div class="profile-image waves-effect waves-block waves-light">
+                <img class="activator" src="{{photo}}" width="417px" height="250px">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{title}}
+                  <i class="material-icons right">Подробнее</i></span>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Подробное описание<i
+                    class="material-icons right">Свернуть</i></span>
+                <p>{{content}}</p>
+              </div>
+            </div>
+            {{/each}}
+          </main>
+
+        </div>
+        <div id="myResps" class="col s6 offset-s3">
+          <h3>Мои отклики</h3>
+          <main class="respPage">
+              {{#each adv}}
+            <div class="card">
+              <div class="profile-image waves-effect waves-block waves-light">
+                <img class="activator" src="{{photo}}"width="417px" height="250px">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{title}}
+                  <i class="material-icons right">Подробнее</i></span>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Подробное описание<i
+                    class="material-icons right">Свернуть</i></span>
+                <p>{{content}}
+                  {{tel}}
+                  {{date}}
+                </p>
+              
+              </div>
+            </div>
+              {{/each}}
+
+            <div class="bid">
+              {{#each bid}}
+              <ul class="collection">
+                <li class="collection-item"><span>Телефон:</span>{{tel}}</li>
+                <li class="collection-item"><span>Дата:</span>{{date}}</li>
+                <li class="collection-item"><span>Время:</span>{{time}}</li>
+                <li class="collection-item"><span>Комментарий:</span>{{comment}}</li>
+                <li class="collection-item"><span>Статус:</span>{{status}}</li>
+              </ul>
+              {{/each}}
+            </div>
+        </div>
+
+        </main>
+      </div>
     </div>
-
-    </main>
   </div>
-</div>
-</div>
+</span>
 
-<style>
-  .container {
-    float: left;
-    width: 400px;
-    margin-left: 60px;
-  }
-
-  .side {
-    float: right;
-    width: 1000px;
-  }
-</style>

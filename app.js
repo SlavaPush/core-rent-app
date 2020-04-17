@@ -5,8 +5,11 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const session = require('express-session');
+
+
 const MongoStore = require('connect-mongodb-session')(session);
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
+
 
 
 
@@ -19,7 +22,7 @@ const addListRoutes = require('./routes/addlist');
 
 const varMiddleware = require('./middleware/variables');
 
-const cookieCleaner = require('./middleware/clean')
+// const cookieCleaner = require('./middleware/clean')
 
 
 const app = express();
@@ -44,25 +47,25 @@ app.use(express.json());
 app.use(express.urlencoded({
   extended: true,
 }));
-app.use(cookieParser());
+// app.use(cookieParser());
 
 app.use(session({
   secret: 'secret secret',
   resave: false,
   saveUninitialized: false,
   store,
-  key: "user_sid",
+  // key: "user_sid",
   cookie: {
-    expires: 5000
+    expires: 60 * 60 * 1000
   },
 }));
 app.use(varMiddleware);
-app.use(cookieCleaner);
+// app.use(cookieCleaner);
 
 
 app.use('/', homeRoutes);
 app.use('/auth', authRoutes);
-app.use('/requests', bidRoutes);
+app.use('/bid', bidRoutes);
 app.use('/profile', profileRoutes);
 app.use('/add', addListRoutes);
 app.use('/all_adds', allListRoutes);
