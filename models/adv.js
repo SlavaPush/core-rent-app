@@ -1,6 +1,9 @@
-const mongoose = require('mongoose');
+const {
+  Schema,
+  model
+} = require('mongoose');
 
-const advSchema = new mongoose.Schema({
+const advSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -12,15 +15,15 @@ const advSchema = new mongoose.Schema({
   number: {
     type: Number,
     required: true,
-
+  },
   price: {
-    type: Number,
+    type: String,
     required: true,
   },
-  // photo: {
-  //   type: String,
-  //   required: true,
-  // },
+  photo: {
+    type: String,
+    required: true,
+  },
   // date: {
   //   type: Date,
   //   required: true,
@@ -36,8 +39,6 @@ const advSchema = new mongoose.Schema({
 
 });
 
-const advModel = mongoose.model('adv', advSchema);
 
 
 module.exports = model('Adv', advSchema);
-

@@ -2,25 +2,26 @@ const express = require('express');
 const router = express.Router();
 
 const mongoose = require('mongoose');
-const advModel = require('../models/adv');
+const Adv = require('../models/adv');
+const auth = require('../middleware/auth');
+const user = require('../models/user');
 
 
 router.get('/', (req, res) => {
-  res.render('./profile/profilePage', { title: 'Профиль' });
 
-const auth = require('../middleware/auth');
-
-
-router.get('/', auth, (req, res) => {
+  // const profileUser = await user.find;
   res.render('./profile/profilePage', {
-
+    title: 'Профиль',
+    isProfile: true,
+    user: req.session.user
   });
-
 });
 
 router.get('/', async (req, res) => {
-  const data = await advModel.find();
-  res.render('posts', { adv: data });
+  const data = await Adv.find();
+  res.render('posts', {
+    adv: data
+  });
 });
 
 module.exports = router;
