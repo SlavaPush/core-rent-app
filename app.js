@@ -17,7 +17,7 @@ const profileRoutes = require('./routes/profile');
 const homeRoutes = require('./routes/home');
 const authRoutes = require('./routes/auth');
 const bidRoutes = require('./routes/bid');
-const allListRoutes = require('./routes/alllist');
+const allListRoutes = require('./routes/adv');
 const addListRoutes = require('./routes/addlist');
 
 const varMiddleware = require('./middleware/variables');
@@ -65,10 +65,10 @@ app.use(varMiddleware);
 
 app.use('/', homeRoutes);
 app.use('/auth', authRoutes);
-app.use('/bid', bidRoutes);
+app.use('/bid', bidRoutes); // local/bid/bid
 app.use('/profile', profileRoutes);
 app.use('/add', addListRoutes);
-app.use('/all_adds', allListRoutes);
+app.use('/adv', allListRoutes);
 
 
 const PORT = process.env.PORT || 3000;
