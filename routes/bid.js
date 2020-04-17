@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const Bid = require('../models/bid');
-const auth = require('../middleware/auth');
+const moder = require('../middleware/moder');
 
 
-router.get('/', auth, async (req, res) => {
+router.get('/', moder, async (req, res) => {
   const bids = await Bid.find();
   res.render('moderate/bid', {
     title: 'Заявки',
@@ -16,7 +16,7 @@ router.get('/', auth, async (req, res) => {
 
 
 
-router.get('/:id/:status', auth, async (req, res) => {
+router.get('/:id/:status', moder, async (req, res) => {
   if (!['accept', 'decline', 'waiting'].includes(req.params.status)) {
     res.end('Invalid');
     return;

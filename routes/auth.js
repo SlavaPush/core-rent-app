@@ -28,6 +28,7 @@ router.post('/login', async (req, res) => {
       if (areSame) {
         req.session.user = candidate;
         req.session.isAuthenticated = true;
+        req.session.isModerator = true;
         req.session.save(err => {
           if (err) {
             throw err;
