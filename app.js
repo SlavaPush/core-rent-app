@@ -18,9 +18,7 @@ const allListRoutes = require('./routes/alllist');
 const addListRoutes = require('./routes/addlist');
 
 const varMiddleware = require('./middleware/variables');
-const {
-  auth
-} = require('./middleware/auth');
+
 const cookieCleaner = require('./middleware/clean')
 
 
@@ -55,7 +53,7 @@ app.use(session({
   store,
   key: "user_sid",
   cookie: {
-    expires: 60 * 60 * 1000
+    expires: 5000
   },
 }));
 app.use(varMiddleware);
