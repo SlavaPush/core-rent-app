@@ -8,7 +8,7 @@ const User = require('../models/user');
 
 
 router.get('/', async (req, res) => {
-  console.log(req.session.user._id);
+  console.log(req.session.user);
   const data = await Adv.find({
     author: req.session.user._id
   });

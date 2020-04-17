@@ -5,6 +5,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const session = require('express-session');
+const User = require('./models/user');
 
 
 const MongoStore = require('connect-mongodb-session')(session);
@@ -82,7 +83,7 @@ async function start() {
     })
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
-    })
+    });
   } catch (e) {
     console.log(e);
   }

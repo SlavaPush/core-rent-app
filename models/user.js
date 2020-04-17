@@ -20,7 +20,10 @@ const userSchema = new Schema({
     type: Number,
     required: true,
   },
-  photo: String,
+  photo: {
+    type: String,
+    default: ''
+  },
   adv: [{
     type: Schema.Types.ObjectId,
     ref: 'Adv'

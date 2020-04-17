@@ -2,29 +2,34 @@
   <span id="profile">
     <div> </div>
     <span><img id="photoProfile" src={{user.photo}} class="responsive-img" id="image1" width="150px" height="200px">
-      <form action="#">
-        <span class="file-field input-field">
-          <span class="btn">
-            <span>Foto</span>
-            <input onclick="" type="file">
-          </span>
-          <div class="file-path-wrapper">
-            <input class="file-path validate" type="text">
-          </div>
-        </span>
+      <form action="/profile">
+        <div class="input-field col s8 offset-s2">
+          <input id="icon_prefix3" type="text" class="validate" name="addPhotolist">
+          <label for="icon_prefix3">Укажите ссылку для добавления фото</label><button
+            class="btn waves-effect waves-light" type="submit" name="delete">Foto</button>
+        </div>
       </form>
     </span>
 
     <div id="profileBtn" class="input-field col s2">
-      <label for="icon_prefix">Имя: {{name}}</label>
+      <label for="icon_prefix">Имя: {{user.name}}</label>
       <input id="icon_prefix" type="text" class="validate" disabled>
       <button id="btn1" class="btn waves-effect waves-light" type="submit" name="action">изменить</button>
-    </div>
-    <div id="profileBtn1" class="input-field col s2"> <label for="icon_prefix">E-mail: {{email}}</label>
+    </div><span class="file-field input-field">
+      <span class="btn">
+        {{!-- <span>Foto</span>
+            <input name="urlFoto" type="text"><br> --}}
+        <button class="btn waves-effect waves-light" type="submit" name="inputFoto">Foto</button>
+      </span>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </span>
+    <div id="profileBtn1" class="input-field col s2"> <label for="icon_prefix">E-mail: {{user.email}}</label>
       <input id="icon_prefix" type="text" class="validate" disabled>
       <button id="btn2" class="btn waves-effect waves-light" type="submit" name="action">изменить</button>
     </div>
-    <div><button class="btn waves-effect waves-light" type="submit" name="action">Сменить пароль</button></div>
+    {{!-- <div><button class="btn waves-effect waves-light" type="submit" name="action">Сменить пароль</button></div> --}}
   </span>
   <div id="listBid">
     <div class="side">
@@ -63,41 +68,41 @@
         <div id="myResps" class="col s6 offset-s3">
           <h3>Мои отклики</h3>
           <main class="respPage">
-            {{#each adv}}
+            {{#each bid}}
             <div class="card">
               <div class="profile-image waves-effect waves-block waves-light">
                 <img class="activator" src="{{this.photo}}" width="417px" height="250px">
               </div>
               <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">{{this.title}}
-                  <i class="material-icons right">Подробнее</i></span>
+                <span class="card-title activator grey-text text-darken-4">{{this.ads}}
+                  <i class="material-icons right">...</i></span>
               </div>
               <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Подробное описание<i
-                    class="material-icons right">Свернуть</i></span>
-                <p>{{this.content}}
-                  <p>Телефон для связи: {{this.number}}</p>
-                  <p>Стоимость:{{this.price}}</p>
-                </p>
+                <span class="card-title grey-text text-darken-4">
+                  <i class="material-icons right">Свернуть</i></span>
+                <p>Телефон:{{this.tel}}</p>
+                <p>Дата:{{this.date}}</p>
+                <p>Комментарии:{{this.comment}} </p>
+                <p>Стоимость:{{this.price}}</p>
+                <p>Статус: {{this.status}}</p>
               </div>
-            </div>
-            {{/each}}
-
-            <div class="bid">
-              {{#each bid}}
-              <ul class="collection">
-                <li class="collection-item"><span>Телефон:</span>{{tel}}</li>
-                <li class="collection-item"><span>Дата:</span>{{date}}</li>
-                <li class="collection-item"><span>Время:</span>{{time}}</li>
-                <li class="collection-item"><span>Комментарий:</span>{{comment}}</li>
-                <li class="collection-item"><span>Статус:</span>{{status}}</li>
-              </ul>
               {{/each}}
-            </div>
-        </div>
 
-        </main>
+              {{!-- <div class="bid">
+                {{#each bid}}
+                <ul class="collection">
+                  <li class="collection-item"><span>Телефон:</span>{{tel}}</li>
+                  <li class="collection-item"><span>Дата:</span>{{date}}</li>
+                  <li class="collection-item"><span>Время:</span>{{time}}</li>
+                  <li class="collection-item"><span>Комментарий:</span>{{comment}}</li>
+                  <li class="collection-item"><span>Статус:</span>{{status}}</li>
+                </ul>
+                {{/each}}
+              </div> --}}
+            </div>
+
+          </main>
+        </div>
       </div>
     </div>
-  </div>
 </span>

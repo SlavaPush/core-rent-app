@@ -95,6 +95,11 @@
   pointer-events: none;
 }
 
+button a {
+  text-decoration: none;
+  color: white;
+}
+
 .modalDialog:target {
   display: block;
   pointer-events: auto;
