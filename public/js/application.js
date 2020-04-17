@@ -6,3 +6,8 @@ $(document).ready(function () {
     startingTop: '60%'
   });
 });
+
+
+// document.querySelector('#accept').addEventListener("submit", (event) => {event.preventDefault()})
+
+// document.querySelector('#decline').addEventListener("submit", (event) => {event.preventDefault()})

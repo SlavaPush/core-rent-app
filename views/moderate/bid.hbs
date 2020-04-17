@@ -5,7 +5,7 @@
         <div class="card blue-grey darken-1">
           <div class="card-content white-text">
             <span class="card-title">{{ads}}</span>
-            <p>Date of miting: {{meetengDate}}</p>
+            <p>Дата создания: {{meetengDate}}</p>
             {{#if rentStatus}}
             <h3>Объект сдан</h3>
             {{/if}}
@@ -16,18 +16,18 @@
             <p>{{ads}}</p>
             {{/if}}
             {{#if person}}
-            <p>Person: {{person}}</p>
+            <p>Автор: {{person}}</p>
             {{/if}}
-            <p>Status: {{status}}</p>
+            <p>Статус: {{status}}</p>
             {{#if comment}}
             <p>{{comment}}</p>
             {{/if}}
           </div>
           <div class="card-action">
-            <form method="get" action="/requests/{{id}}/accept">
+            <form id="accept" method="get" action="/bid/{{id}}/accept">
               <input type="submit" class="btn waves-effect waves-light" value="accept">
             </form>
-            <form method="get" action="/requests/{{id}}/decline" style="display: inline">
+            <form id="decline" method="get" action="/bid/{{id}}/decline" style="display: inline">
               <input type="submit" class="btn waves-effect waves-light" value="decline">
             </form>
           </div>
