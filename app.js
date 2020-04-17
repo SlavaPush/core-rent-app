@@ -5,8 +5,12 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const session = require('express-session');
+
+const advModel = require('./models/adv');
+
 const MongoStore = require('connect-mongodb-session')(session);
 const cookieParser = require('cookie-parser');
+
 
 
 
@@ -62,7 +66,7 @@ app.use(cookieCleaner);
 
 app.use('/', homeRoutes);
 app.use('/auth', authRoutes);
-app.use('/requests', bidRoutes);
+app.use('/bid', bidRoutes);
 app.use('/profile', profileRoutes);
 app.use('/add', addListRoutes);
 app.use('/all_adds', allListRoutes);

@@ -4,7 +4,7 @@ const auth = require('../middleware/auth');
 
 router.get('/', auth, (req, res) => {
   res.render('addpost', {
-    title: 'Аренда квартир',
+    title: 'Разместить объявление',
     isHome: true,
   });
 });

@@ -1,21 +1,22 @@
 const express = require('express');
 const router = express.Router();
+const Bid = require('../models/bid');
 const auth = require('../middleware/auth');
 
-const requests = [{
-  id: 1
-}, {
-  id: 2
-}, {
-  id: 3
-}, {}, {}, {}]
+// const bids = [{
+//   id: 1
+// }, {
+//   id: 2
+// }, {
+//   id: 3
+// }, {}, {}, {}]
 
-router.get('/', auth, (req, res) => {
-  // requests = await Resp.mostRecent();
+router.get('/', auth, async (req, res) => {
+  const bids = await Bid.mostRecent();
   res.render('moderate/bid', {
     title: 'Заявки',
-    isReq: true,
-    requests
+    isBid: true,
+    bids
   });
 });
 
@@ -24,15 +25,12 @@ router.get('/:id/:status', auth, async (req, res) => {
     res.end('Invalid');
     return;
   }
-  // let doc = await Resp.findById({ id: req.params.id} )
-  // doc..status = req.params.status;
-  requests[0].status = req.params.status;
-  doc.save();
-  res.send('ok')
+  let bid = await Bid.findById({ id: req.params.id } )
+  bid.status = req.params.status;
+  // bids[0].status = req.params.status;
+  bid.save();
+  res.redirect('moderate/bid')
 });
 
-// router.get('/:id/decline', async (req, res) => {
-//   // let entry = await Resp.findById({ id: req.params.id})
-// });
 
 module.exports = router;

@@ -29,8 +29,8 @@ const bidSchema = new Schema({
     type: String
   },
   status: {
-    type: Boolean,
-    default: false
+    type: String,
+    default: 'waiting'
   },
   meetengStatus: {
     type: Boolean,

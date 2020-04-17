@@ -1,10 +1,6 @@
-const {
-  Schema,
-  model,
-} = require('mongoose');
+const mongoose = require('mongoose');
 
-
-const advSchema = new Schema({
+const advSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -13,10 +9,22 @@ const advSchema = new Schema({
     type: String,
     required: true,
   },
-  photo: {
-    type: String,
+  number: {
+    type: Number,
+    required: true,
+
+  price: {
+    type: Number,
     required: true,
   },
+  // photo: {
+  //   type: String,
+  //   required: true,
+  // },
+  // date: {
+  //   type: Date,
+  //   required: true,
+  // },
   author: {
     type: Schema.Types.ObjectId,
     ref: 'User',
@@ -25,7 +33,11 @@ const advSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Bid',
   }],
+
 });
+
+const advModel = mongoose.model('adv', advSchema);
 
 
 module.exports = model('Adv', advSchema);
+

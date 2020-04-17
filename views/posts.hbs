@@ -1,7 +1,14 @@
-{{#each flat}}
-<div class="postMain">
-  <div>
-    <h4>{{name}}</h4>
+
+{{!-- <form action="*" name="allPosts" method="POST"> --}}
+  {{!-- <form action="" method="POST"> --}}
+
+{{#each house}}
+  <div class="postMain">
+    <div ><h4>{{this.title}}</h4></div>
+    <div >{{this.content}}</div>
+    <div>{{this.number}}</div>
+    <div >{{this.price}}</div>
+    <div><button class="btn btn-primary" type="submit">Откликнуться</button></div>
   </div>
   <div>{{comment}}</div>
   <div>{{number}}</div>
@@ -19,12 +26,7 @@
         <input type="hidden" name="inputID" value="{{id}}">
         <div><input type="datetime-local" placeholder="Выберите удобную Вам дату"></div>
         <div class="input-field col s12">
-          <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-          <label for="icon_prefix2">Описание</label>
-        </div>
-        <div><button class="btn btn-primary" type="submit">Отправить заявку</button></div>
-      </div>
-    </form>
-  </div>
-</div>
+
 {{/each}}
+
+
