@@ -1,15 +1,4 @@
 <form action="*" name="allPosts" method="POST">
-{{!-- {{#each house}}
-  <div class="postMain">
-    <div ><h4>{{this.title}}</h4></div>
-    <div >{{this.content}}</div>
-    <div>{{this.number}}</div>
-    <div >{{this.price}}</div>
-    <div >{{this.photo}}</div>
-    <div><button class="btn btn-primary" type="submit">Откликнуться</button></div>
-  </div>
-{{/each}} --}}
-
   {{#each house}}
   <div class="postMain">
     <div class="card">
@@ -22,7 +11,8 @@
         <a href="#openModal"><button class="btn btn-primary" type="button">Откликнуться</button></a>
       </div>
       <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">{{this.price}}<i class="material-icons right">Закрыть</i></span>
+        <span class="card-title grey-text text-darken-4">{{this.price}}<i
+            class="material-icons right">Закрыть</i></span>
         <p>{{this.content}}</p>
         <p>Телефон для связи: {{this.number}}</p>
       </div>
