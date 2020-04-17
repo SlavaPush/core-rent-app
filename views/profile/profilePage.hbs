@@ -2,7 +2,7 @@
   <h2> Профиль</h2>
 
   <div class="loadPhoto">
-    <img class="responsive-img"id="image1" width="150px" height="200px" /> <br>
+    <img class="responsive-img" id="image1" width="150px" height="200px" /> <br>
     <input type="file" id="file1" /> <br>
     <button onclick="save()">Загрузить</button>
     <script>
@@ -28,7 +28,7 @@
       <li class="collection-item"><span>E-mail:</span>{{user.email}}</li>
     </ul>
 
-    <input id="changePass" />
+    {{!-- <input id="changePass" />
     <button id="changePassBtn" type="Button" onclick='changePassBtnClick()'>Сменить пароль</button>
 
     <script>
@@ -40,7 +40,7 @@
         localStorage.setItem('password', document.getElementById('changePass').value);
         alert('Пароль изменен');
       }
-    </script>
+    </script> --}}
   </div>
 
 </div>
@@ -57,22 +57,25 @@
     <div id="myAdvs" class="col s6 offset-s3">
       <h2>Мои объявления</h2>
       <main class="advsPage">
-        {{#each adv}}
         <div class="card">
-          <div class="card-image waves-effect waves-block waves-light">
+        {{#each adv}}
+          {{!-- <div class="card-image waves-effect waves-block waves-light">
             <img class="activator" src="{{photo}}">
-          </div>
+          </div> --}}
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">{{title}}
+            <span class="card-title activator grey-text text-darken-4">{{this.title}}
               <i class="material-icons right">Подробнее</i></span>
           </div>
           <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">Подробное описание<i
                 class="material-icons right">Свернуть</i></span>
-            <p>{{content}}</p>
+            <p><span>Описание</span>{{this.content}}</p>
+            <p><span>Номер телефона:</span>{{this.number}}</p>
+            <p><span>Стоимость:</span>{{this.price}}</p>
+
           </div>
-        </div>
         {{/each}}
+        </div>
       </main>
 
     </div>

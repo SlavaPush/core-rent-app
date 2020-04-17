@@ -5,8 +5,12 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const session = require('express-session');
+
+const advModel = require('./models/adv');
+
 const MongoStore = require('connect-mongodb-session')(session);
 const cookieParser = require('cookie-parser');
+
 
 
 
